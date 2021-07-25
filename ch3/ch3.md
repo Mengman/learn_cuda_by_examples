@@ -32,16 +32,16 @@ For a one-dimensional thread block the thread ID equals <code>x</code>; for a tw
 
 void main()
 {
-    # create a one-dimensional grid with one-dimensional blocks
+    // create a one-dimensional grid with one-dimensional blocks
     int numBlocks = 1;
     int threadPreBlock = 128;
     FooKernel<<<numBlocks, threadPreBlock>>>(A, B);
 
-    # create a one-dimensional grid with two-dimensional blocks
+    // create a one-dimensional grid with two-dimensional blocks
     dim3 blockShape = dim3(32, 32); # thread number is 32 * 32 * 1
     FooKernel<<<numBlocks, blockShape>>>(A, B);
 
-    # create a two-dimensional grid with two-dimensional blocks
+    // create a two-dimensional grid with two-dimensional blocks
     dim3 gridShape = dim3(3, 2);
     dim blockShape = dim3(2, 3);
     FooKernel<<<gridShape, blockShape>>>(A, B);
